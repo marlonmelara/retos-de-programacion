@@ -100,11 +100,6 @@ let admision =
  ** ESTRUCTURAS DE CONTROL
  * 1. Condicionales
  * 2. Iterativas
- * 3. Operadores de comparación
- * 4. Operadores lógicos
- * 5. Operadores de cadena
- * 6. Operador de asignación
- * 7. Operadores ternarios
 
  *********************************/
 
