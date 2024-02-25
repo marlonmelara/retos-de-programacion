@@ -54,3 +54,54 @@ myObj["email"] = "marlon@mail.com"; // Inserción
 console.log(myObj);
 myObj["code"] = "771"; // Actualización
 console.log(myObj);
+
+// Extra
+function myAgenda() {
+  let agenda = {}; // Objeto para almacenar la agenda
+  let continuar = true; // Controla el ciclo del menú
+
+  while (continuar) {
+    console.log("1. Buscar contacto");
+    console.log("2. Insertar contacto");
+    console.log("3. Actualizar contacto");
+    console.log("4. Eliminar contacto");
+    console.log("5. Salir");
+
+    // Imaginemos que option es capturada por un prompt (en un entorno real)
+    // Por simplicidad, asignaré un valor directamente
+    let option = parseInt(prompt("Elige una opción:")); // Esta línea es ilustrativa; prompt() no funciona en Node.js
+
+    switch (option) {
+      case 1:
+        // Lógica para buscar contacto
+        break;
+      case 2:
+        let name = prompt("Introduce el nombre del contacto:");
+        let phone = prompt("Introduce el teléfono del contacto:");
+
+        // Verifica que phone es numérico y tiene entre 1 y 11 caracteres
+        if (/^\d{1,11}$/.test(phone)) {
+          agenda[name] = phone;
+        } else {
+          console.log(
+            "Debes introducir un número de teléfono con menos de 12 dígitos"
+          );
+        }
+        break;
+      case 3:
+        // Lógica para actualizar contacto
+        break;
+      case 4:
+        // Lógica para eliminar contacto
+        break;
+      case 5:
+        console.log("Saliendo de la agenda.");
+        continuar = false; // Esto hace que el bucle while termine
+        break;
+      default:
+        console.log("Opción no válida. Elige una opción del 1 al 5.");
+    }
+  }
+}
+
+myAgenda();
