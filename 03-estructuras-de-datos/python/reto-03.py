@@ -51,43 +51,50 @@ print(my_dict)
 Extra
 """
 def my_agenda():
- agenda = {}
+    agenda = {}
 
- while True:
+    def insert_contact(name):  # Ahora se pasa 'name' como argumento
+        phone = input("Introduce el teléfono del contacto: ")
+        if phone.isdigit() and len(phone) > 0 and len(phone) <= 11:
+            agenda[name] = phone
+        else:
+            print("Debes introducir un número de teléfono con menos de 12 dígitos")
 
-  print("")
-  print("1. Buscar contacto")
-  print("2. Insertar contacto")
-  print("3. Actualizar contacto")
-  print("4. Eliminar contacto")
-  print("5. Salir")
+    while True:
+        print("\n1. Buscar contacto")
+        print("2. Insertar contacto")
+        print("3. Actualizar contacto")
+        print("4. Eliminar contacto")
+        print("5. Salir")
 
-  option = input("\nSelecciona una opción: ")
+        option = input("\nSelecciona una opción: ")
 
-  match option:
-    case "1":
-      name = input("Introduce el nombre de contacto a buscar: ")
-      if name in agenda:
-        print(f"El número de telefono {name} es {agenda[name]}.")
-      else:
-        print(f"El contacto {name} no existe.")
- 
-    case "2":
-      name = input("Introduce el nombre del contacto: ")
-      phone = input("Introduce el teléfono del contacto: ")
-      if phone.isdigit() and len(phone) > 0 and len(len) <= 11:
-        agenda[name]= phone
-      else:
-        print("Debes introducir un número de teléfono con menos de 12 dígitos")
-
-    case "3":
-      pass
-    case "4":
-      pass
-    case "5":
-      print ("Saliendo de la agenda.")
-      break
-    case _:
-      print("Opción no válida. Elige una opción del 1 al 5.")
+        match option:
+            case "1":
+                name = input("Introduce el nombre de contacto a buscar: ")
+                if name in agenda:
+                    print(f"El número de teléfono de {name} es {agenda[name]}.")
+                else:
+                    print(f"El contacto {name} no existe.")
+            case "2":
+                name = input("Introduce el nombre del contacto: ")
+                insert_contact(name)
+            case "3":
+                name = input("Introduce el nombre de contacto a actualizar: ")
+                if name in agenda:
+                    insert_contact(name)
+                else:
+                    print(f"El contacto {name} no existe.")
+            case "4":
+                name = input("Introduce el nombre de contacto a eliminar: ")
+                if name in agenda:
+                    del agenda[name]
+                else:
+                    print(f"El contacto {name} no existe.")
+            case "5":
+                print("Saliendo de la agenda.")
+                break
+            case _:
+                print("Opción no válida. Elige una opción del 1 al 5.")
 
 my_agenda()
