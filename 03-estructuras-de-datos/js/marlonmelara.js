@@ -57,8 +57,18 @@ console.log(myObj);
 
 // Extra
 function myAgenda() {
+  let name, phone;
   let agenda = {}; // Objeto para almacenar la agenda
   let continuar = true; // Controla el ciclo del menú
+  let phoneRegex = /^\s{0}\b\d{11}\b\s{0}$/;
+  function phone_Regex() {
+    phone = prompt("Ingresa número telefónico del contacto: ", "");
+    if (phoneRegex.test(phone)) {
+      agenda[name] = phone;
+    } else {
+      console.log("El número debe tener 11 dígitos, sin espacios.");
+    }
+  }
 
   while (continuar) {
     console.log("1. Buscar contacto");
@@ -67,18 +77,11 @@ function myAgenda() {
     console.log("4. Eliminar contacto");
     console.log("5. Salir");
 
-    // Imaginemos que option es capturada por un prompt (en un entorno real)
-    // Por simplicidad, asignaré un valor directamente
-    let option = parseInt(prompt("Elige una opción:")); // Esta línea es ilustrativa; prompt() no funciona en Node.js
-
     switch (option) {
       case 1:
         // Lógica para buscar contacto
         break;
       case 2:
-        let name = prompt("Introduce el nombre del contacto:");
-        let phone = prompt("Introduce el teléfono del contacto:");
-
         // Verifica que phone es numérico y tiene entre 1 y 11 caracteres
         if (/^\d{1,11}$/.test(phone)) {
           agenda[name] = phone;
